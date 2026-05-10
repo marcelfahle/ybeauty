@@ -142,10 +142,17 @@ export const beautySalonJsonLd = {
   url: siteUrl,
   image: `${siteUrl}/opengraph-image`,
   logo: `${siteUrl}/icon.png`,
+  sameAs: [contact.googlePlaceHref],
+  hasMap: contact.googlePlaceHref,
   telephone: "+34661648434",
   email: contact.email,
   priceRange: "€€",
   areaServed: `${brand.city}, Alicante`,
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 38.8346853,
+    longitude: 0.1068772,
+  },
   address: {
     "@type": "PostalAddress",
     streetAddress: "Av. Joan Fuster 46b 1c",

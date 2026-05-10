@@ -418,6 +418,7 @@ video {
 
 .treatment-card {
   display: grid;
+  grid-template-rows: 330px 1fr;
   min-height: 560px;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -434,7 +435,7 @@ video {
 }
 
 .treatment-card__image {
-  min-height: 330px;
+  min-height: 0;
   border-radius: 0;
 }
 
@@ -802,6 +803,7 @@ video {
 
   .treatment-card {
     grid-template-columns: 0.9fr 1fr;
+    grid-template-rows: minmax(300px, auto);
     min-height: 300px;
   }
 
@@ -944,6 +946,7 @@ video {
 
   .treatment-card {
     grid-template-columns: 1fr;
+    grid-template-rows: 300px 1fr;
   }
 
   .service-list,

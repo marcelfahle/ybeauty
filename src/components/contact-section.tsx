@@ -38,7 +38,7 @@ export function ContactSection({ compact = false }: ContactSectionProps) {
               <h3>Ubicación</h3>
               <p>{contact.address}</p>
               <a href={contact.mapsHref} target="_blank" rel="noreferrer">
-                Abrir en Google Maps
+                Cómo llegar en Google Maps
               </a>
             </div>
           </div>

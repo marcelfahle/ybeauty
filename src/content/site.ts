@@ -19,8 +19,10 @@ export const contact = {
   whatsappHref:
     "https://wa.me/34661648434?text=Hola%20Y%20beauty%2C%20me%20gustar%C3%ADa%20reservar%20una%20cita.",
   address: "Av. Joan Fuster 46b 1c, 03700 Dénia",
+  googlePlaceHref:
+    "https://www.google.com/maps/place/Ybeauty/data=!4m7!3m6!1s0x129e1b213d536c65:0x8eb93513f05c63c5!8m2!3d38.8346853!4d0.1068772!16s%2Fg%2F11c2ld4ltg",
   mapsHref:
-    "https://www.google.com/maps/search/?api=1&query=Y%20Beauty%20Av.%20Joan%20Fuster%2046b%20D%C3%A9nia",
+    "https://www.google.com/maps/dir/?api=1&destination=Ybeauty%2C%20Av.%20de%20Joan%20Fuster%2046B%201%C2%B0C%2C%2003700%20D%C3%A9nia%2C%20Alicante&destination_place_id=ChIJZWxTPSEbnhIRxWNc8BM1uY4",
   hours: [
     "Martes, jueves y viernes: 9:30-19:00",
     "Miércoles: 9:30-16:00",
