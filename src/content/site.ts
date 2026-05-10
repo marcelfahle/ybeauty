@@ -26,7 +26,7 @@ export const contact = {
   hours: [
     "Martes, jueves y viernes: 9:30-19:00",
     "Miércoles: 9:30-16:00",
-    "Sábado: 8:00-13:00",
+    "Sábado: 10:00-15:00",
     "Domingo y lunes: cerrado",
   ],
 };
