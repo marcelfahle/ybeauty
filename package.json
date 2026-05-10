@@ -9,6 +9,7 @@
     "lint": "oxlint .",
     "lint:next": "eslint .",
     "format": "prettier --write .",
+    "icons": "node scripts/generate-brand-icons.mjs",
     "check": "bun run lint && bun run lint:next && bun run build"
   },
   "dependencies": {

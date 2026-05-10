@@ -6,12 +6,18 @@ import Link from "next/link";
 import { ContactSection } from "@/components/contact-section";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { createPageMetadata } from "@/content/seo";
 import { contact, homeContent, media } from "@/content/site";
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "/",
-  },
+  ...createPageMetadata({
+    title: "Salón de belleza en Dénia",
+    description:
+      "Y beauty es un salón de belleza en Dénia para tratamientos faciales, corporales, depilación y maquillaje. Reserva tu cita previa por WhatsApp.",
+    path: "/",
+    keywords: ["salón belleza cerca de mí", "estética Dénia cita previa"],
+  }),
+  title: "Salón de belleza en Dénia | Y beauty",
 };
 
 export default function Home() {
