@@ -31,6 +31,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${display.variable} ${body.variable}`}>
+      <head>
+        <script async src="https://plausible.io/js/pa-HPDXAYjQ9-2oIPhN3zV1-.js" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+plausible.init()`,
+          }}
+        />
+      </head>
       <body>
         {children}
         <script
