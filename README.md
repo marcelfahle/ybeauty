@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Y beauty
 
-## Getting Started
+Modern rebuild of the Y beauty salon site for Dénia, Spain.
 
-First, run the development server:
+## Stack
+
+- Next.js App Router
+- React + TypeScript
+- Bun package manager
+- `oxlint` for fast linting
+- Prettier for formatting
+- Local images and videos copied from the current Wix site
+
+## Commands
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install
+bun run dev
+bun run format
+bun run lint
+bun run lint:next
+bun run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Editing Guide
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Most non-technical edits should start in `src/content/`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/content/site.ts`: brand copy, contact details, hours, navigation, home sections, image references
+- `src/content/treatments.ts`: facial, body, waxing, and makeup service menus
+- `public/media/`: local photos
+- `public/video/`: local decorative videos
 
-## Learn More
+Reusable site sections live in `src/components/`.
 
-To learn more about Next.js, take a look at the following resources:
+- `site-header.tsx`: logo, desktop nav, mobile menu, WhatsApp CTA
+- `site-footer.tsx`: footer navigation and contact links
+- `contact-section.tsx`: hours, location, WhatsApp, email
+- `category-page.tsx`: shared treatment page layout and service cards
+- `brand-logo.tsx`: extracted Y beauty SVG logo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Design tokens and layout rules live in `src/app/globals.css`. Keep changes there conservative: use the existing color variables, 8px radius, responsive grids, and readable text over photography.

@@ -1,66 +1,145 @@
+import { ArrowRight, MessageCircle } from "lucide-react";
+import type { Metadata } from "next";
 import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link";
+
+import { ContactSection } from "@/components/contact-section";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
+import { contact, homeContent, media } from "@/content/site";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <SiteHeader />
+      <main>
+        <section className="home-hero">
+          <video
+            className="home-hero__video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={media.heroWater.src}
+            aria-hidden="true"
           >
+            <source src="/video/hero-water.mp4" type="video/mp4" />
+          </video>
+          <div className="home-hero__shade" />
+          <div className="home-hero__content">
+            <p className="eyebrow">{homeContent.hero.eyebrow}</p>
+            <h1>{homeContent.hero.title}</h1>
+            <p>{homeContent.hero.body}</p>
+            <div className="button-row">
+              <a
+                className="button button--light"
+                href={contact.whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <MessageCircle size={18} aria-hidden="true" />
+                Reservar cita
+              </a>
+              <Link className="button button--ghost-light" href="/tratamientos-faciales">
+                Ver tratamientos
+                <ArrowRight size={18} aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="intro-section">
+          <div className="intro-section__copy">
+            <p className="eyebrow">Y beauty</p>
+            <h2>{homeContent.intro.title}</h2>
+            <p>{homeContent.intro.body}</p>
+            <p className="signature">{homeContent.intro.signature}</p>
+          </div>
+          <div className="intro-section__media">
             <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src={media.salonFacial.src}
+              alt={media.salonFacial.alt}
+              fill
+              priority
+              sizes="(max-width: 900px) 100vw, 44vw"
+              className="cover-image"
             />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          </div>
+        </section>
+
+        <section className="principles-section">
+          {homeContent.principles.map((principle) => (
+            <article key={principle.title} className="principle">
+              <span aria-hidden="true" />
+              <h2>{principle.title}</h2>
+              <p>{principle.body}</p>
+            </article>
+          ))}
+        </section>
+
+        <section className="treatments-preview">
+          <div className="section-heading">
+            <p className="eyebrow">Carta de tratamientos</p>
+            <h2>Elige cómo quieres cuidarte</h2>
+          </div>
+          <div className="treatment-card-grid">
+            {homeContent.treatmentCards.map((card) => (
+              <Link href={card.href} className="treatment-card" key={card.href}>
+                <span className="treatment-card__image">
+                  <Image
+                    src={card.image.src}
+                    alt={card.image.alt}
+                    fill
+                    sizes="(max-width: 900px) 100vw, 30vw"
+                    className="cover-image"
+                  />
+                </span>
+                <span className="treatment-card__content">
+                  <span className="h3">{card.title}</span>
+                  <span>{card.body}</span>
+                  <span className="inline-link">
+                    Ver carta
+                    <ArrowRight size={16} aria-hidden="true" />
+                  </span>
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="ritual-section">
+          <div className="ritual-section__image">
+            <Image
+              src={media.spaRoom.src}
+              alt={media.spaRoom.alt}
+              fill
+              sizes="(max-width: 900px) 100vw, 45vw"
+              className="cover-image"
+            />
+          </div>
+          <div className="ritual-section__copy">
+            <p className="eyebrow">Belleza inspirada en la naturaleza</p>
+            <h2>Mar, flores, manos expertas y una pausa real</h2>
+            <p>
+              El nuevo sitio conserva la calma del agua y las imágenes del salón, pero organiza la
+              información para que sea clara en móvil, fácil de editar y directa para reservar.
+            </p>
+            <a className="inline-cta" href={contact.whatsappHref} target="_blank" rel="noreferrer">
+              Pedir cita previa
+              <ArrowRight size={16} aria-hidden="true" />
+            </a>
+          </div>
+        </section>
+
+        <ContactSection />
       </main>
-    </div>
+      <SiteFooter />
+    </>
   );
 }
